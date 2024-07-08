@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom"
-
+import "../../styles/nav.scss"
 const MainNav = () => {
 
   return (
     <nav>
+     
+      <div className="mid-nav">
       <Link to="/">
       <div className="logo-div">
       <h1 className="logo-home">Findie</h1>
@@ -29,8 +31,10 @@ const MainNav = () => {
       <p>Leaderboard</p>
       </div>
       </NavLink>
+      </div>
+      
       <footer>
-        Another KM project
+        <p>Another KM project</p>
       </footer>
     </nav>
   )

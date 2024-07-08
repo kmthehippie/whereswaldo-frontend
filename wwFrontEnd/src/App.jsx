@@ -1,7 +1,9 @@
 import {RouterProvider, createBrowserRouter} from "react-router-dom"
-
+//import scss
+import "./styles/app.scss"
 //import loader
 import { validateMapName } from "./utils/validateMap"
+//import components
 import Home from './components/Main/Home'
 import GameLayout from "./components/Game/GameLayout"
 import Error from "./components/Error"

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rock+Salt&display=swap');
+
+:root {
+    margin: 0;
+    padding: 0;
+    --font-rock-salt: "Rock Salt", cursive;
+    --font-lato: "Lato", sans-serif;
+    --light-gray: rgba(191, 191, 191);
+    --dark-gray: rgba(65, 65, 65);
+    --bright-red: rgba(225, 25, 43);
+    --dark-red: rgba(138, 0, 0);
+    --bright-yellow: rgba(251, 255, 79);
+}
+
+body,
+div,
+h1,
+p,
+main,
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+p {
+    text-decoration: none;
+    color: black;
+    font-family: var(--font-lato);
+}
+
+main {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

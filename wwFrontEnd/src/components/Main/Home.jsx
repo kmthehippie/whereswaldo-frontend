@@ -1,12 +1,15 @@
-import React from 'react'
+import MainImg from "../../assets/WWMain.png"
+import "../../styles/home.scss"
 
 const Home = () => {
   return (
-    <main>
+    <div className="home-div">
       <div className="welcome-div">
-        <img src="/assets/WWMain.png" alt="Waldo is peeking" />
+        <img src={MainImg} alt="Waldo is peeking" className="waldo-main"/>
+        <h2 className="welcome-sub">WELCOME TO</h2>
+        <h1 className="welcome-main">Findie</h1>
       </div>
-    </main>
+    </div>
   )
 }
 
