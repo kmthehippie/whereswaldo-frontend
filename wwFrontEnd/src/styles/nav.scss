@@ -1,6 +1,5 @@
 nav {
     width: 400px;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -29,13 +28,14 @@ nav {
         }
 
         .square-div:hover {
-            transition-property: font-weight, font-size;
+            transition-property: background-color, color;
             transition-duration: 0.25s;
             transition-timing-function: ease-out;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border: 2px solid black;
-
+            background-color: var(--light-gray);
+            
+                p {
+                    color: white;
+                }
         }
     }
 

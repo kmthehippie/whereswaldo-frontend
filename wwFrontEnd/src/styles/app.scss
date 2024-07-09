@@ -30,9 +30,20 @@ p {
     font-family: var(--font-lato);
 }
 
+nav {
+    grid-area: navigation
+}
+
+.body-div {
+    grid-area: body
+}
 main {
     width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(17vh, 10vw) 1fr;
+        justify-content: center;
+            grid-template-areas:
+                    'navigation body body body body body';
 }

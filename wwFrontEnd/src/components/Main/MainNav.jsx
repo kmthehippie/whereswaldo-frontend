@@ -4,9 +4,9 @@ const MainNav = () => {
 
   return (
     <nav>
-     
       <div className="mid-nav">
-      <Link to="/">
+        <div className="group-divs">
+        <Link to="/">
       <div className="logo-div">
       <h1 className="logo-home">Findie</h1>
       </div>
@@ -26,16 +26,22 @@ const MainNav = () => {
       <p>Play: Gotham (Hard)</p>
       </div>
       </Link>
-      <NavLink to="/leaderboard">
+        </div>
+     
+     
+     {/* When active add image of wwimage. don't foget to do the scss for the image. */}
+      <NavLink to="/leaderboard" className="leaderboard-btn">
       <div className="square-div">
       <p>Leaderboard</p>
       </div>
       </NavLink>
-      </div>
-      
+
       <footer>
         <p>Another KM project</p>
       </footer>
+      </div>
+      
+      
     </nav>
   )
 }

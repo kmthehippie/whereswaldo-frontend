@@ -1,0 +1,14 @@
+.game-div {
+    width: calc(100% - 2vh);
+    padding: 2vh;
+    background-color: var(--light-gray);
+
+    img {
+        //figure out how you want the image...
+        // width: calc(100% - 2vh);
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
