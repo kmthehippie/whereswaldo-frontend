@@ -10,8 +10,8 @@ import randomize from '../../utils/randomize'
 
 const GameLayout = () => {
   const { mapName } = useParams()
-  const { gameData, setGameData, setImagesToMatch } = useGameContext()
-
+  const { gameData, setGameData, setImagesToMatch, gameWon } = useGameContext()
+  
   const fetchGameData = async() => {
     try {
       const response = await api.get(`/game/${mapName}`)
@@ -21,12 +21,17 @@ const GameLayout = () => {
     }
   }
 
+  //Set up code for updating the name and posting it to the server
+  const postHandler = () => {
+
+  }
+  
   useEffect(()=>{
     fetchGameData()
   },[])
 
   useEffect(()=>{
-    const toRandom = randomize(gameData.imagesToMatch)
+    const toRandom = randomize(gameData?.imagesToMatch)
     setImagesToMatch(toRandom)
   }, [gameData])
 
@@ -34,6 +39,20 @@ const GameLayout = () => {
     <main>
     <GameNav />
     <Outlet /> 
+    {gameWon && (
+      <div className="full-page-bg">
+        <div className="modal">
+          <h1 className="congrats-header">Congratulations!</h1>
+          <p>You have found it all!</p>
+          <p>You took TIMER to do it.</p>
+          <form action="post">
+            <label htmlFor="name">Enter Your Name:</label>
+            <input type="text" name="name"/>
+          </form>
+          <button onClick={postHandler}>SAVE TO LEADERBOARDS</button>
+        </div>
+      </div>
+    )}
     </main>
   )
 }

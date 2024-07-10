@@ -2,13 +2,12 @@ import { Link, useParams } from 'react-router-dom'
 import MainImg from "../../assets/WWMain.png"
 import "../../styles/gamenav.scss"
 import useGameContext from '../../utils/hooks/useGameContext'
+import { compareCoords } from '../../utils/compareCoords'
 
 
 const GameNav = () => {
   const {mapName} = useParams()
-  const {imagesToMatch} = useGameContext()
-
-
+  const {imagesToMatch, imagesMatched} = useGameContext()
 
   return (
     <nav>
@@ -32,6 +31,7 @@ const GameNav = () => {
       <div className="group-divs">
       
       {imagesToMatch.map((img)=>{return (<div className="game-square-div nav-match-img" key={img._id}>
+        {!imagesMatched.indexOf(img._id) && (<p>FOUND</p>)}
         <img src={img.image} alt={img._id} />
       </div>)}
         
