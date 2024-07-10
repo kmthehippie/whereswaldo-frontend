@@ -1,37 +1,44 @@
 .game-div {
-    width: calc(100% - 2vh);
-    padding: 2vh;
-    background-color: var(--light-gray);
-    z-index: 100;
-        position: relative;
-
-    img {
-        //figure out how you want the image...
-        // width: calc(100% - 2vh);
+    position: relative;
+    overflow: true;
+    
+    .map-container {
         width: 100%;
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-.onClick-modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    width: 3vh;
-    background-color: white;
-    z-index: 1000;
-
-    .small-square-div {
-        border: 1px solid black;
-
-
+        position: absolute;
+        top: 0;
+        left: 0;
         img {
-            width: 4vh;
-            height: 4vh;
-            object-fit: scale-down;
+            width: 100%;
+            height: auto;
         }
+        .clicked-div {
+            width: 2.5vh;
+            height: 2.5vh;
+            pointer-events: none;
+        }
+        
+        .onClick-modal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            width: 3vh;
+            background-color: white;
+            z-index: 1000;
+            .small-square-div {
+                border: 1px solid black;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                img {
+                width: 4vh;
+                height: 4vh;
+                object-fit: scale-down;
+                }
+            }
+        }   
     }
-}
 }

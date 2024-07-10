@@ -1,5 +1,3 @@
-import useGameContext from "./hooks/useGameContext"
-
 
 export const compareCoords = (clicked, topleft, btmright) =>{
 
@@ -13,14 +11,11 @@ export const compareCoords = (clicked, topleft, btmright) =>{
 
     if (xRange[0] < clickX && clickX < xRange[1]) {
         if(yRange[0] < clickY && clickY < yRange[1]){
-            console.log(xRange, yRange, clickX, clickY + "true")
             return true
         } else {
-            console.log(xRange, yRange, clickX, clickY + "false")
             return false
         }
     } else {
-        console.log(xRange, yRange, clickX, clickY + "false")
         return false
     }
 }

@@ -2,12 +2,20 @@ import { Link, useParams } from 'react-router-dom'
 import MainImg from "../../assets/WWMain.png"
 import "../../styles/gamenav.scss"
 import useGameContext from '../../utils/hooks/useGameContext'
-import { compareCoords } from '../../utils/compareCoords'
+import { useEffect, useState } from 'react'
 
 
 const GameNav = () => {
   const {mapName} = useParams()
-  const {imagesToMatch, imagesMatched} = useGameContext()
+  const {imagesToMatch, imagesMatched, sec} = useGameContext()
+  const [ imagesFound, setImagesFound ] = useState([])
+
+
+  useEffect(()=>{
+    console.log(imagesMatched)
+    setImagesFound(imagesMatched)
+  }, [imagesMatched])
+
 
   return (
     <nav>
@@ -23,7 +31,7 @@ const GameNav = () => {
         <div className="timer">
           <div className='timer-text'>TIMER</div>
           {/* INSERT TIMER BELOW THIS */}
-          <span className="timer-counter">1</span> 
+          <span className="timer-counter">{sec}</span> 
         </div>
         <img src={MainImg} alt="Waldo is Peeking" className='small-waldo' />
       </div>
@@ -31,7 +39,10 @@ const GameNav = () => {
       <div className="group-divs">
       
       {imagesToMatch.map((img)=>{return (<div className="game-square-div nav-match-img" key={img._id}>
-        {!imagesMatched.indexOf(img._id) && (<p>FOUND</p>)}
+        {imagesFound.includes(img._id) && (
+          <div className="found"> 
+          <h1>FOUND</h1>
+          </div>)}
         <img src={img.image} alt={img._id} />
       </div>)}
         

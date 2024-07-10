@@ -47,3 +47,59 @@ main {
             grid-template-areas:
                     'navigation body body body body body';
 }
+.full-page-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: var(--font-lato);
+    text-align: center;
+    line-height: 1.5rem;
+
+    .congrats-header {
+        margin: 1rem;
+    }
+
+    .modal {
+        background-color: var(--bright-yellow);
+        padding: 2rem 3rem;
+        border: 3px solid black;
+        position: relative;
+
+        form {
+            margin: 0.5rem;
+
+            input {
+                border: none;
+                padding: 0.5rem 2rem;
+            }
+
+
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            margin: 0.8rem;
+            border: 1px solid rgba(239, 239, 239)
+        }
+
+        button:hover {
+            cursor: pointer;
+            border: 1px solid black;
+            transition: 0.8s;
+        }
+
+        img {
+            position: absolute;
+            top: -28.5%;
+            left: 50%;
+            transform: rotate(9.9deg) translate(-50%, -28.5%);
+            width: 300px;
+        }
+    }
+}
