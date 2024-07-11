@@ -6,5 +6,7 @@ import  { VitePWA } from 'vite-plugin-pwa'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), VitePWA(), copy({targets:[{src:'public/_redirects',  dest: 'dist'}]})],
-  build: {outDir: 'dist'}
+  build: {outDir: 'dist'},
+  base: "/wwFrontEnd/",
+  publicDir: "public"
 })
