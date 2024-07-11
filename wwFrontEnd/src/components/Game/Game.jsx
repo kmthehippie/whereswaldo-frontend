@@ -57,7 +57,7 @@ const Game = () => {
     <div className="body-div game-div"> 
       <div className="map-container">
         <img
-          src={`/${import.meta.env.BASE_URL}/${map}`}
+          src={`${map}`}
           alt={gameData?.game?.mapName}
           className="map"
           onClick={handleClickCoords}
@@ -67,7 +67,7 @@ const Game = () => {
             }
           }}
           onLoad={handleMapLoad} />
-
+       
 
         {allClickedCoords.map((click) => (
           <div
