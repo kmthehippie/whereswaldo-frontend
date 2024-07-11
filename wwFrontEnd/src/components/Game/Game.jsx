@@ -10,9 +10,8 @@ const Game = () => {
   const [ openModal, setModalOpen ] = useState(false)
   //this click is the event click for modal
   const [ eventClick, setEventClick ] = useState([0,0])
-  //this is for ALL the clicks so far so that we can cf to matched. if matched = green box, if not = red box. 
+  //this is for ALL the clicks so far so that we can cf to matched. 
   const [allClickedCoords, setAllClickedCoords] = useState([])
-  //TODO: create an overlay where it maps over this arr and creates a div
   //this click is the % of the image for comparing to data
   const [ clickedCoords, setClickedCoords ] = useState([])
 
@@ -44,8 +43,6 @@ const Game = () => {
   }
 
 
-
-  //Add a function to handle clicking outside of the modal and pressing escape
   useEffect(() => {
     const close = (e) => {
       if(e.keyCode === 27){

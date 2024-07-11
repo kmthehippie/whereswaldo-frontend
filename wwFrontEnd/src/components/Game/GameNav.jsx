@@ -12,7 +12,6 @@ const GameNav = () => {
 
 
   useEffect(()=>{
-    console.log(imagesMatched)
     setImagesFound(imagesMatched)
   }, [imagesMatched])
 

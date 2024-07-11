@@ -2,8 +2,6 @@ import { useEffect, useState } from "react"
 import api from "../../api/axios"
 import "../../styles/leaderboard.scss"
 
-//TODO: Add fetch for data for leaderboard.
-//TODO: Add map for the sorted data for each mapName type
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([])

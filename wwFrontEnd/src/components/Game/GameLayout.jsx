@@ -12,7 +12,7 @@ import useResetContext from '../../utils/hooks/useResetContext'
 
 const GameLayout = () => {
   const { mapName } = useParams()
-  const { sec, postData, setPostData, gameData, setGameData, setImagesToMatch, gameWon } = useGameContext()
+  const { sec, gameData, setGameData, setImagesToMatch, gameWon } = useGameContext()
   const [ modalOpen, setModalOpen ] = useState(false)
   const resetContext = useResetContext()
   const [ nameValue, setNameValue ] = useState("")
@@ -28,7 +28,6 @@ const GameLayout = () => {
     }
   }
  
-  //TODO: Set up code for updating the name and posting it to the server
   const nameHandler = (e) => {
     e.preventDefault()
     setNameValue(e.target.value)
@@ -52,7 +51,6 @@ const GameLayout = () => {
   resetContext()
  
   }
-  //TODO: Set up code so that if navigate away from this page, it will prompt are you sure you want to navigate before saving your name. 
   
   useEffect(()=>{
     resetContext()
@@ -60,7 +58,6 @@ const GameLayout = () => {
   },[])
 
   useEffect(()=>{
-    console.log(gameWon)
     if(gameWon)
       {
         setModalOpen(true)
