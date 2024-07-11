@@ -57,7 +57,7 @@ const Game = () => {
     <div className="body-div game-div"> 
       <div className="map-container">
         <img
-          src={`/public/${map}`}
+          src={`/${import.meta.env.BASE_URL}/${map}`}
           alt={gameData?.game?.mapName}
           className="map"
           onClick={handleClickCoords}
