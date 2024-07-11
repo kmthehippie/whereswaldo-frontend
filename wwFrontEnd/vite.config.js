@@ -7,5 +7,5 @@ import  { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [react(), VitePWA(), copy({targets:[{src:'public/_redirects',  dest: 'dist'}]})],
   build: {outDir: 'dist'},
-  publicDir: "assets"
+  publicDir: "public/assets"
 })
