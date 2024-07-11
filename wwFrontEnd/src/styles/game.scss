@@ -39,6 +39,12 @@
                 object-fit: scale-down;
                 }
             }
+            .found-small{
+                background-color: var(--dark-red);
+                img{
+                    opacity: 0.5;
+                }
+            }
         }   
     }
 }

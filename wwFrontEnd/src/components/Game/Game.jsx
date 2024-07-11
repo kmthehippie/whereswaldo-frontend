@@ -16,6 +16,7 @@ const Game = () => {
   //this click is the % of the image for comparing to data
   const [ clickedCoords, setClickedCoords ] = useState([])
 
+  const [ foundImages, setFoundImages ] = useState([])
 
   const checkCoords = useCompareCoords()
   const handleMapLoad = () => {
@@ -25,10 +26,9 @@ const Game = () => {
     const isMatch = checkCoords(clicked, topleft, btmright, imgId)
     if(isMatch){
     setModalOpen(false)
-      //TODO: if match then add coords into allEventClicks with prop match: true (I need the event.clicks to get the coords)
       setAllClickedCoords(prev => [...prev, { coords: clickedCoords, match: "green" }])
+      setFoundImages(prev => [...prev, imgId])
     } else {
-      //TODO: if don't match then add coords into allEventClicks with prop match: false
       setAllClickedCoords(prev => [...prev, { coords: clickedCoords, match: "red" }])
     setModalOpen(false)
     }
@@ -87,8 +87,6 @@ const Game = () => {
           </div>
         ))}
 
-
-
         {openModal && (
           <div
             className="onClick-modal"
@@ -100,7 +98,7 @@ const Game = () => {
             }}>
             {imagesToMatch.map((img) => (
               <div
-                className="small-square-div"
+                className={`small-square-div ${foundImages.includes(img._id) ? 'found-small' : ''}`}
                 key={img._id}
                 onClick={() => handleMatchClick(clickedCoords, img.topleft, img.btmright, img._id)}
               >

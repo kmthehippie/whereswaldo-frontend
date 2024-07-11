@@ -16,17 +16,10 @@
         color: var(--dark-red);
         padding: 0;
         line-height: 1.35rem;
-    }
-
-    small {
-        font-size: 1rem;
-        font-weight: 300;
-        font-family: var(--font-lato);
-        color: black;
+        margin-bottom: 2rem;
     }
 
     .chart {
-
         padding: 1rem;
         width: 33.3333%;
         max-width: 400px;
@@ -35,5 +28,21 @@
         margin: 1rem;
         margin-top: 3rem;
         height: auto;
+        small {
+            font-size: 1rem;
+            font-weight: 300;
+            font-family: var(--font-lato);
+            color: black;
+        }
+        .player-data{
+            margin-top: 1rem;
+            .player-name{
+                font-weight: 300;
+                font-size: 1.2rem;
+                font-style: italic;
+            }
+        }
     }
+    
+   
 }
