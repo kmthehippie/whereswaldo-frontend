@@ -90,6 +90,11 @@ nav {
     nav{
         width: 120px;
         .mid-nav{
+            .timer-div{
+                h2{
+                    font-size: 0.6rem;
+                }
+            }
             .game-square-div {
                 height: 9vh;
                 width: 9vh;
