@@ -20,7 +20,9 @@ const Game = () => {
   const checkCoords = useCompareCoords()
 
   const handleMapLoad = useCallback(() => {
-    setMapLoaded(true)
+    if(mapRef.current && mapRef.current.complete){
+      setMapLoaded(true)
+    }
   }, [setMapLoaded])
   const handleMatchClick = useCallback((clicked, topleft, btmright, imgId) => {
     const isMatch = checkCoords(clicked, topleft, btmright, imgId)
@@ -42,11 +44,7 @@ const Game = () => {
     setModalOpen(true)
   }
 
-  useEffect(()=>{
-    if(mapRef.current && mapRef.current.complete){
-      handleMapLoad()
-    }
-  }, [handleMapLoad])
+
   useEffect(() => {
     const close = (e) => {
       if(e.keyCode === 27){
