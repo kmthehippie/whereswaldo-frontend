@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import "../../styles/game.scss"
 import useGameContext from '../../utils/hooks/useGameContext'
 import { findCoords } from "../../utils/findCoords"
@@ -31,7 +31,6 @@ const Game = () => {
       setAllClickedCoords(prev => [...prev, { coords: clickedCoords, match: "red" }])
     setModalOpen(false)
     }
-
   }
 
   const handleClickCoords = (event) => {
@@ -52,6 +51,27 @@ const Game = () => {
     window.addEventListener('keydown', close)
   return () => window.removeEventListener('keydown', close)
   },[])
+
+  //Preload images
+  useEffect(()=>{
+imagesToMatch.forEach(img =>{
+  const image = new Image()
+  image.src = img.image
+  image.alt = img._id
+})
+  },[imagesToMatch])
+
+  const modalContent = useMemo(()=>(
+    imagesToMatch.map((img)=>(
+      <div
+      className={`small-square-div ${foundImages.includes(img._id)}`}
+      key={img._id}
+      onClick={() => handleMatchClick(clickedCoords, img.topleft, img.btmright, img._id)}
+      >
+        <img src={img.image} alt={img._id} />
+      </div>
+    ))
+  ), [imagesToMatch, foundImages, clickedCoords, handleMatchClick])
 
   return (
     <div className="body-div game-div"> 
@@ -93,15 +113,7 @@ const Game = () => {
               transform: 'translate(-50%, -50%)',
 
             }}>
-            {imagesToMatch.map((img) => (
-              <div
-                className={`small-square-div ${foundImages.includes(img._id) ? 'found-small' : ''}`}
-                key={img._id}
-                onClick={() => handleMatchClick(clickedCoords, img.topleft, img.btmright, img._id)}
-              >
-                <img src={img.image} alt={img._id} />
-              </div>
-            ))}
+            {modalContent}
           </div>
         )}
     </div>
