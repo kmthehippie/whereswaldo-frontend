@@ -15,7 +15,12 @@ const [ sec, setSec ] = useState(0)
 const [ postData, setPostData ] = useState({})
 
 useEffect(()=>{
-    setRunTimer(true)
+    if(mapLoaded){
+        const timer = setTimeout(()=>{
+            setRunTimer(true)
+        }, 100)
+        return ()=> clearTimeout(timer)
+    }
 },[mapLoaded])
 
 useEffect(()=>{
