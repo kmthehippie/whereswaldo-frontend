@@ -55,7 +55,6 @@ const Game = () => {
   return () => window.removeEventListener('keydown', close)
   },[])
 
-  //Preload images
   useEffect(()=>{
 imagesToMatch.forEach(img =>{
   const image = new Image()

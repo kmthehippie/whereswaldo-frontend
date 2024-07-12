@@ -37,8 +37,7 @@ useEffect(()=>{
     }
 }, [runTimer])
 
-//TODO: when game has been won, send the data so that we can send the timer, name and etc post to api.
- 
+
     return (
     <GameContext.Provider
         value={{
