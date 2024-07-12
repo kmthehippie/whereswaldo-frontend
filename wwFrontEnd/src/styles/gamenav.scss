@@ -85,3 +85,29 @@ nav {
         }
     }
 }
+
+@media only screen and (max-width: 768px){
+    nav{
+        width: 120px;
+        .mid-nav{
+            .game-square-div {
+                height: 9vh;
+                width: 9vh;
+                margin-bottom: 1vh;
+                    .found {
+                        height: 9vh;
+                        width: 9vh;
+                
+                    }
+            }
+
+            .nav-match-img{
+
+               img{
+                width: 8vh;
+                height: 8vh;
+               }
+            }
+        }
+    }
+}

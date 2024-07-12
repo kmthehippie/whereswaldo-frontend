@@ -16,7 +16,6 @@ const [ postData, setPostData ] = useState({})
 
 useEffect(()=>{
     if(mapLoaded){
-        console.log("map has loaded. in context now and setting a timeout on a timer for 100ms before starting to run timer")
         const timer = setTimeout(()=>{
             setRunTimer(true)
         }, 100)
@@ -26,16 +25,13 @@ useEffect(()=>{
 
 useEffect(()=>{
     let intervalId;
-  
     if(runTimer){
-        console.log("runtimer is true and now we start the interval")
         intervalId = setInterval(()=>{
             setSec((prevSec)=> prevSec+1)
         },1000)
     }
     return()=>{
         if(intervalId){
-            console.log("clearing the interval")
             clearInterval(intervalId)
         }
     }

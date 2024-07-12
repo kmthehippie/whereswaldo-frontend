@@ -43,6 +43,34 @@
             }
         }
     }
-    
-   
+}
+
+@media only screen and (max-width: 768px){
+    .leaderboard-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 100%;
+        width: 100%;
+        padding: 0 rem;
+        margin: 0rem;
+        .chart{
+            padding: 0rem;
+            margin: 0rem;
+            width: 100%;
+            text-align: center;
+            border: 0.1px solid black;
+            height: auto;
+
+            .player-data{
+                .player-name{
+                    font-size: 1rem;
+                }
+                p {
+                    font-size: 1rem;
+                }
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
 }

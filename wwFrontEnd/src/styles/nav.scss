@@ -45,3 +45,16 @@ nav {
     }
 
 }
+
+@media only screen and (max-width: 768px){
+    nav{
+        width: 120px;
+        .mid-nav{
+            .square-div {
+                width: 10vh;
+                height: 10vh;
+                margin-bottom: 1vh;
+            }
+        }
+    }
+}

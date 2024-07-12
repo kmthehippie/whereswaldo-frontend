@@ -48,3 +48,29 @@
         }   
     }
 }
+
+@media only screen and (max-width: 768px){
+
+    .game-div{
+        .map-container{
+            .clicked-div {
+                width: 7vh;
+                height: 7vh;
+            }
+            
+            .onClick-modal {
+                width: 7vh;
+              
+                .small-square-div {
+                    img {
+                    width: 7vh;
+                    height: 7vh;
+                    }
+                }
+               
+            }   
+        }
+        
+    }
+    
+}

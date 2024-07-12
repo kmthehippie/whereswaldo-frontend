@@ -21,7 +21,6 @@ const Game = () => {
 
   const handleMapLoad = useCallback(() => {
     if(mapRef.current && mapRef.current.complete){
-      console.log("map ref current and map ref current has completed. setting map loaded to true now.")
       setMapLoaded(true)
     }
   }, [setMapLoaded])
@@ -111,7 +110,6 @@ imagesToMatch.forEach(img =>{
               top: `${eventClick[1]}px`,
               left: `${eventClick[0]}px `,
               transform: 'translate(-50%, -50%)',
-
             }}>
             {modalContent}
           </div>
