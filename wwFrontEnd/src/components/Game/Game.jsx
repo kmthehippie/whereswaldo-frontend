@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import "../../styles/game.scss"
 import useGameContext from '../../utils/hooks/useGameContext'
 import { findCoords } from "../../utils/findCoords"
@@ -14,14 +14,15 @@ const Game = () => {
   const [allClickedCoords, setAllClickedCoords] = useState([])
   //this click is the % of the image for comparing to data
   const [ clickedCoords, setClickedCoords ] = useState([])
-
+  const mapRef = useRef(null)
   const [ foundImages, setFoundImages ] = useState([])
 
   const checkCoords = useCompareCoords()
-  const handleMapLoad = () => {
+
+  const handleMapLoad = useCallback(() => {
     setMapLoaded(true)
-  }
-  const handleMatchClick = (clicked, topleft, btmright, imgId) => {
+  }, [setMapLoaded])
+  const handleMatchClick = useCallback((clicked, topleft, btmright, imgId) => {
     const isMatch = checkCoords(clicked, topleft, btmright, imgId)
     if(isMatch){
     setModalOpen(false)
@@ -31,8 +32,8 @@ const Game = () => {
       setAllClickedCoords(prev => [...prev, { coords: clickedCoords, match: "red" }])
     setModalOpen(false)
     }
-  }
-
+  }, [checkCoords, clickedCoords]
+)
   const handleClickCoords = (event) => {
     setEventClick([event.clientX, event.clientY])
     setClickedCoords([])
@@ -41,7 +42,11 @@ const Game = () => {
     setModalOpen(true)
   }
 
-
+  useEffect(()=>{
+    if(mapRef.current && mapRef.current.complete){
+      handleMapLoad()
+    }
+  }, [handleMapLoad])
   useEffect(() => {
     const close = (e) => {
       if(e.keyCode === 27){
@@ -81,11 +86,7 @@ imagesToMatch.forEach(img =>{
           alt={gameData?.game?.mapName}
           className="map"
           onClick={handleClickCoords}
-          ref={(img) => {
-            if (img && img.complete) {
-              handleMapLoad()
-            }
-          }}
+          ref={mapRef}
           onLoad={handleMapLoad} />
        
 
